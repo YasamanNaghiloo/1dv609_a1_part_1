@@ -39,4 +39,5 @@ public class BugWrongHashingAlgorithm implements IPassword{
     public boolean isPasswordSame(IPassword other) {
         return this.passwordHash == other.getPasswordHash();
     }
+    
 }
