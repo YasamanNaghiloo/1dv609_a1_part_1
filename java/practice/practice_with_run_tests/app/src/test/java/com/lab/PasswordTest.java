@@ -78,7 +78,24 @@ public class PasswordTest {
         assertFalse(pw1.isPasswordSame(pw2), "isPasswordSame() Should Return False");
     }
 
+    @Test
+    public void diffrentPasswordShouldNotBeTheSame() throws Exception {
+        IPassword pw1 = getPassword("Password0001");
+        IPassword pw2 = getPassword("Password0002");
+        IPassword pw3 = getPassword("Password0003");
+        IPassword pw4 = getPassword("Password0004");
+        IPassword pw5 = getPassword("Password0005");
+        IPassword pw6 = getPassword("Password0006");
 
+        IPassword[] passwords = {pw1, pw2, pw3, pw4, pw5, pw6};
+        for (int i = 0; i < passwords.length; i++) {
+            for (int j = i + 1; j < passwords.length; j++) {
+                assertFalse(passwords[1].isPasswordSame(passwords[j]),
+                "Different passwords must not be considered equal: " + i + "and" + j);
+            }
+        }
+        
+    }
 
 
 }
