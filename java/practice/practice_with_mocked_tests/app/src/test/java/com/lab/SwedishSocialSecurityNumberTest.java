@@ -124,8 +124,7 @@ public class SwedishSocialSecurityNumberTest {
         assertDoesNotThrow(() -> new SwedishSocialSecurityNumber("     900101-0017", ssnMock));
 
         verify(ssnMock).isCorrectFormat("900101-0017");
-        // verifying isCorrectLength and LuhnIsCorrect will cause 2 other tests to fail wrongly,
-        // as they dont have these method calls and therefore can't verify calling them
+// Checking isCorrectLength and LuhnIsCorrect will break 2 other tests,since those tests don’t call these methods and can’t verify them
     }
 
 
